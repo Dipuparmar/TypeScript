@@ -1,0 +1,351 @@
+1
+00:00:02,170 --> 00:00:06,220
+So how can we output the coordinates on a map now for Dad again.
+
+2
+00:00:06,220 --> 00:00:12,490
+We'll use a Google API if you search for a Google javascript maps or a Google J.S. maps.
+
+3
+00:00:12,500 --> 00:00:16,750
+You'll find your official talks for the Google javascript Google Maps API.
+
+4
+00:00:17,230 --> 00:00:21,990
+And here you'll learn how you can use Google Maps in your web application to render a map.
+
+5
+00:00:22,060 --> 00:00:24,740
+And it's really straightforward and simple.
+
+6
+00:00:24,760 --> 00:00:31,710
+First of all we need to add this script here which will add this Google Maps SDK to our application.
+
+7
+00:00:31,780 --> 00:00:38,230
+So simply grab that script and add it to your index H html file above your script.
+
+8
+00:00:38,260 --> 00:00:44,530
+Now important we don't installed us with NPM because it's not published two NPM hence we use this CDM
+
+9
+00:00:44,560 --> 00:00:48,290
+link which pulls the script directly from Google's servers.
+
+10
+00:00:48,340 --> 00:00:51,070
+And here we need to set up our API key.
+
+11
+00:00:51,610 --> 00:00:57,010
+Now that's of course the API key we already have here in the typescript file so we can just copy that
+
+12
+00:00:57,490 --> 00:01:05,760
+into index H HTML and replace your API key with it and also get rid of this and callback equals in it
+
+13
+00:01:05,770 --> 00:01:07,150
+map thing at the end.
+
+14
+00:01:07,150 --> 00:01:12,820
+This would trigger a function as soon as this map is loaded or as soon as this SDK is loaded.
+
+15
+00:01:12,820 --> 00:01:14,680
+And that's not something I want here.
+
+16
+00:01:15,890 --> 00:01:21,810
+So with that we're loading this SDK and now we can use it.
+
+17
+00:01:21,950 --> 00:01:24,320
+And here's where we'll have a problem.
+
+18
+00:01:24,320 --> 00:01:29,690
+I want to use it to render a map and rendering a map is actually straightforward in the official docs.
+
+19
+00:01:29,690 --> 00:01:35,300
+We see that in the end we have to instantiate does Google dot maps dot map constructor function.
+
+20
+00:01:35,480 --> 00:01:41,480
+Pass a center to it which is essentially well this pair of coordinates we're getting from the back end
+
+21
+00:01:41,750 --> 00:01:49,390
+and assume level so we can just copy this and then here once we've got the coordinates execute this
+
+22
+00:01:49,390 --> 00:01:53,570
+code and maybe store map here in a constant name map.
+
+23
+00:01:53,770 --> 00:01:55,990
+But of course we get an error here cannot find.
+
+24
+00:01:55,990 --> 00:01:58,970
+Name Google and that makes sense.
+
+25
+00:01:58,990 --> 00:02:05,380
+This will be available globally but typescript does know that it will be available globally because
+
+26
+00:02:05,380 --> 00:02:11,580
+of this javascript SDK we're importing but of course typescript doesn't know this.
+
+27
+00:02:12,310 --> 00:02:14,150
+You'll learn what you can do there.
+
+28
+00:02:14,230 --> 00:02:22,710
+You can of course use declare var Google and set this to any and with Dad you are telling typescript
+
+29
+00:02:23,040 --> 00:02:24,090
+it's fine.
+
+30
+00:02:24,090 --> 00:02:25,170
+This will exist.
+
+31
+00:02:25,170 --> 00:02:29,080
+Don't worry we can do that and the error goes away.
+
+32
+00:02:29,100 --> 00:02:33,540
+Now we can all use our coordinates here instead of the hard coded ones.
+
+33
+00:02:33,540 --> 00:02:39,570
+And if we all do want to render a marker that's all the possible in the official docs if you click on
+
+34
+00:02:39,690 --> 00:02:44,640
+adding a map with a marker we learn that adding a marker is straightforward.
+
+35
+00:02:44,640 --> 00:02:46,230
+We just use the map.
+
+36
+00:02:46,260 --> 00:02:52,700
+We created and create a marker with this command and point at this map.
+
+37
+00:02:53,020 --> 00:02:59,150
+So I will just copy this code snippet here and back in our code after we created the map.
+
+38
+00:02:59,200 --> 00:03:06,060
+I create my marker like this and the position here again are my coordinates so this will now render
+
+39
+00:03:06,060 --> 00:03:08,570
+a map and place a marker on it.
+
+40
+00:03:08,610 --> 00:03:10,380
+The only remaining thing is dead.
+
+41
+00:03:10,380 --> 00:03:13,980
+We need to ensure that this map is rendered in the right place.
+
+42
+00:03:13,980 --> 00:03:18,360
+By default it looks for an element with an I.D. map and that is what we have here.
+
+43
+00:03:18,720 --> 00:03:25,240
+But if you chose a different idea here make sure to adjust is in your typescript code and was that if
+
+44
+00:03:25,240 --> 00:03:30,610
+we save this ID compiles without errors.
+
+45
+00:03:30,680 --> 00:03:35,370
+And now if I enter an address here it should render this.
+
+46
+00:03:35,370 --> 00:03:41,420
+So this is working and we can adjust to some level here to be assumed in a bit more for example changes
+
+47
+00:03:41,460 --> 00:03:42,820
+to 16.
+
+48
+00:03:42,960 --> 00:03:47,520
+And now if we try as we can see a bit clearer but it is working and that is what we can tell.
+
+49
+00:03:47,550 --> 00:03:50,460
+We can stroll around and use this map.
+
+50
+00:03:50,460 --> 00:03:53,400
+This is all nice but it's not optimal.
+
+51
+00:03:53,400 --> 00:03:56,310
+Of course it works things to declare war.
+
+52
+00:03:56,310 --> 00:04:01,590
+Google we're not getting any errors but we're also not getting any type support.
+
+53
+00:04:01,620 --> 00:04:08,400
+If I introduce an error if I for example refer to DOD map instead of DOT maps it compiles without issues
+
+54
+00:04:08,910 --> 00:04:11,280
+and it only crashes in production thereafter.
+
+55
+00:04:11,340 --> 00:04:13,160
+If I try to render a map.
+
+56
+00:04:13,200 --> 00:04:17,520
+Now I get an error here caught by our error handler.
+
+57
+00:04:17,520 --> 00:04:19,770
+So this is of course not what we want.
+
+58
+00:04:19,800 --> 00:04:21,200
+We want type support.
+
+59
+00:04:21,210 --> 00:04:27,420
+We want to handle dumb mistakes like this during development and not at runtime.
+
+60
+00:04:27,420 --> 00:04:32,440
+So how can we ensure that typescript knows Google Maps types to the rescue.
+
+61
+00:04:32,520 --> 00:04:38,850
+If you search for types Google Maps you find various packages which add types for while Google maps.
+
+62
+00:04:38,850 --> 00:04:44,940
+Now we didn't install the Google Maps package through NPM but we can still install types for that package
+
+63
+00:04:44,940 --> 00:04:46,150
+through NPM.
+
+64
+00:04:46,260 --> 00:04:51,000
+And here I'll go for it is first package and simply install that into our project.
+
+65
+00:04:51,600 --> 00:04:59,360
+So let's go back with the development server and run npm install dash dash save dash death at types.
+
+66
+00:04:59,380 --> 00:05:00,940
+Slash Google Maps.
+
+67
+00:05:00,950 --> 00:05:04,150
+One word that was the name of this package.
+
+68
+00:05:04,220 --> 00:05:08,350
+This will now install global types for this package.
+
+69
+00:05:08,450 --> 00:05:09,770
+So now I have a restart.
+
+70
+00:05:09,860 --> 00:05:11,540
+Does with NPM start.
+
+71
+00:05:11,540 --> 00:05:15,100
+Let's see if we have a better situation.
+
+72
+00:05:15,260 --> 00:05:16,490
+If I remove this.
+
+73
+00:05:16,490 --> 00:05:19,690
+Declare war thing here or I commented out.
+
+74
+00:05:20,000 --> 00:05:21,680
+It still compiles.
+
+75
+00:05:21,680 --> 00:05:24,490
+Now this Google Maps thing here is detected.
+
+76
+00:05:24,680 --> 00:05:28,430
+And if I tried to access dot map here I get an error.
+
+77
+00:05:28,430 --> 00:05:32,460
+I also get all to completion now and it sees yes there is a maps thing.
+
+78
+00:05:32,480 --> 00:05:39,050
+It also tells me that this map constructor needs a div or an element where it should render the map
+
+79
+00:05:39,050 --> 00:05:42,880
+as a first argument and then some options for the map.
+
+80
+00:05:42,890 --> 00:05:45,350
+So this is now working here as it should.
+
+81
+00:05:45,350 --> 00:05:51,980
+And this is of course a great step forward because now we have our working application and it did work
+
+82
+00:05:52,010 --> 00:05:59,530
+before as well but now it works also with types and with a proper type support and this day offer is
+
+83
+00:05:59,540 --> 00:06:05,710
+no great practice for how you build applications with TypeScript and use certain types good features
+
+84
+00:06:06,260 --> 00:06:11,540
+but it's especially a great practice for how you can work with third party libraries.
+
+85
+00:06:11,600 --> 00:06:15,410
+Some like access bring their own types.
+
+86
+00:06:15,450 --> 00:06:23,270
+Others aren't even installed with NPM and yet you can add types with an appropriate types package.
+
+87
+00:06:23,270 --> 00:06:29,390
+I hope this module was helpful for understanding this and deal for all the for all future projects you
+
+88
+00:06:29,390 --> 00:06:35,210
+might be working on where you most likely will also work with certain third party libraries.

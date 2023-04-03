@@ -1,0 +1,27 @@
+1
+00:00:02,140 --> 00:00:09,340
+Now in the last module we learned how to work with third party libraries in typescript and that's exactly
+
+2
+00:00:09,340 --> 00:00:11,740
+what we'll build up on this module.
+
+3
+00:00:11,740 --> 00:00:18,670
+We will build a tiny application a very simple Web site where we will use third party libraries to send
+
+4
+00:00:18,760 --> 00:00:22,930
+HDP requests and also to render a map.
+
+5
+00:00:22,930 --> 00:00:24,700
+With the help of google maps.
+
+6
+00:00:24,700 --> 00:00:25,710
+So that is what we'll do.
+
+7
+00:00:25,710 --> 00:00:28,180
+And of course we'll do all of this with typescript.

@@ -1,0 +1,463 @@
+1
+00:00:02,420 --> 00:00:06,760
+Now sending requests is possible without a third party package.
+
+2
+00:00:06,950 --> 00:00:11,960
+In modern JavaScript in modern browsers you have to fetch API.
+
+3
+00:00:11,960 --> 00:00:13,670
+This is built into browsers.
+
+4
+00:00:13,670 --> 00:00:19,650
+It's a globally available function and you can use it to send requests to you or else.
+
+5
+00:00:19,670 --> 00:00:26,180
+Now there's nothing that speaks against this API besides the fact that error handling can be a bit clunky
+
+6
+00:00:26,210 --> 00:00:27,200
+with it.
+
+7
+00:00:27,200 --> 00:00:34,280
+But I also want to practice the usage of third party libraries therefore we will use the very popular
+
+8
+00:00:34,400 --> 00:00:36,090
+access package.
+
+9
+00:00:36,110 --> 00:00:42,950
+This is a package you can use in JavaScript and therefore also in typescript to send H to repeated requests
+
+10
+00:00:43,930 --> 00:00:51,240
+so we just need to install access to start using it for this and our project where we can use NPM to
+
+11
+00:00:51,240 --> 00:00:52,590
+manage dependencies.
+
+12
+00:00:52,770 --> 00:00:59,910
+We can run npm install dash dash save access just like this and this will now install the access package
+
+13
+00:01:00,540 --> 00:01:01,890
+with this installed.
+
+14
+00:01:01,890 --> 00:01:09,200
+We can now import access here import access from axioms and you will see something interesting.
+
+15
+00:01:09,240 --> 00:01:15,660
+If I now start using this and I type a dot here I get auto completion and for example you have a get
+
+16
+00:01:15,660 --> 00:01:19,890
+method here which will send a get request to a U R L.
+
+17
+00:01:19,890 --> 00:01:25,650
+So here we actually got built in typescript support and if we go to node modules and we have a look
+
+18
+00:01:25,650 --> 00:01:34,360
+at the axial package here it is you will see that in there there is an indexed dot DTA s file so the
+
+19
+00:01:34,370 --> 00:01:43,090
+Axis library authors already bundled their library to gather with such a typescript translation package
+
+20
+00:01:43,810 --> 00:01:50,320
+in there everything is explained to typescript this package or this file here basically explains to
+
+21
+00:01:50,320 --> 00:01:55,660
+typescript what this javascript library is able to do and which types it uses.
+
+22
+00:01:55,660 --> 00:01:59,140
+Now some libraries do that and access is one of them.
+
+23
+00:01:59,140 --> 00:02:02,080
+You can tell pretty fast if a library does this or not.
+
+24
+00:02:02,140 --> 00:02:07,690
+If you start using it if you get no auto completion support and you've got a lot of compilation errors
+
+25
+00:02:07,960 --> 00:02:10,670
+you probably need to install extra types.
+
+26
+00:02:10,810 --> 00:02:16,900
+If you get good support like we do here and you will get no compilation errors thereafter well then
+
+27
+00:02:16,900 --> 00:02:22,390
+you already got a library with built in type translations and hence you don't need to install any extra
+
+28
+00:02:22,390 --> 00:02:23,140
+types.
+
+29
+00:02:23,140 --> 00:02:23,830
+Good to know.
+
+30
+00:02:23,950 --> 00:02:26,200
+And here we have a great example.
+
+31
+00:02:26,290 --> 00:02:31,840
+So since we have built in support we can start using axes right away and I want us send that age to
+
+32
+00:02:31,840 --> 00:02:38,710
+be a request to dis you are L now so let's copy this you are L and let's enter it here and I will enter
+
+33
+00:02:38,710 --> 00:02:46,420
+it between back takes to create a template literal so that I can easily swap parts of this string for
+
+34
+00:02:46,420 --> 00:02:53,410
+dynamic for Abbott values so let's paste in that string it is quite long and let's start by replacing
+
+35
+00:02:53,470 --> 00:03:00,220
+your API key at the end with our Google API key which we stored in this constant for this since this
+
+36
+00:03:00,220 --> 00:03:08,650
+is a template literal we can add dollar sign curly braces and then point at Google API key to use this
+
+37
+00:03:08,650 --> 00:03:13,310
+constant in addition let's swap this address.
+
+38
+00:03:13,420 --> 00:03:19,330
+Here we got a dummy address entered and of course there at 1 to use to address the user entered.
+
+39
+00:03:19,330 --> 00:03:25,540
+Now just one important note this address of course is exactly the text the user entered and they offer
+
+40
+00:03:25,540 --> 00:03:30,570
+it can contain special characters whitespace commas and much more.
+
+41
+00:03:30,700 --> 00:03:35,620
+And not all these characters and symbols are supported in you or else.
+
+42
+00:03:35,620 --> 00:03:42,190
+So we need to convert this entered string into a you are Al compatible string and thankfully TypeScript
+
+43
+00:03:42,190 --> 00:03:48,010
+and JavaScript specifically has a built in function that helps us with that DNA code.
+
+44
+00:03:48,070 --> 00:03:48,700
+You are.
+
+45
+00:03:48,720 --> 00:03:55,720
+I function we can call that and pass a string to it and this will convert this string to a you are Al
+
+46
+00:03:55,720 --> 00:04:02,560
+compatible string with Dad we got the finished you are ELT which we can send the request to get back
+
+47
+00:04:02,950 --> 00:04:05,520
+our coordinates now get.
+
+48
+00:04:05,520 --> 00:04:11,560
+Gives us a promise because of course sending such a request is an asynchronous task and there we have
+
+49
+00:04:11,560 --> 00:04:18,670
+a then lock if this succeeds or catch if we have a technical error or an error response code.
+
+50
+00:04:18,670 --> 00:04:24,220
+So here will console log any errors we might be getting at this point because normally we should succeed
+
+51
+00:04:24,880 --> 00:04:31,240
+and therefore here I will expect my response and to then block and I also want to log this response
+
+52
+00:04:31,240 --> 00:04:32,210
+then.
+
+53
+00:04:32,440 --> 00:04:35,690
+So now with that I'd say let's see what this gives us.
+
+54
+00:04:35,860 --> 00:04:42,890
+Let's rerun NPM start to bring up that webpage process again and start building this and let's go back
+
+55
+00:04:42,890 --> 00:04:47,300
+to our application and enter a place here like 6th Avenue.
+
+56
+00:04:47,300 --> 00:04:52,820
+If I hit search address you'll see after a while you get output here and there you should have a status
+
+57
+00:04:52,820 --> 00:04:59,120
+code of 200 which means that the requests exceed it and you have a data field which holds the day that
+
+58
+00:04:59,120 --> 00:05:05,570
+the server replied with that data field has a results field and in there we have an array as you can
+
+59
+00:05:05,570 --> 00:05:09,320
+tell in it array we got a couple of items.
+
+60
+00:05:09,380 --> 00:05:12,690
+The number varies and these are basically the results.
+
+61
+00:05:12,710 --> 00:05:16,740
+Google found and the first result is typically the best one.
+
+62
+00:05:16,790 --> 00:05:22,070
+So if we have a look at that we see for example the formatted address so the address which Google found
+
+63
+00:05:22,070 --> 00:05:23,820
+for this address we entered.
+
+64
+00:05:23,840 --> 00:05:30,710
+It's a bit more complete than what we entered and we get the geometry key here and if we expand this
+
+65
+00:05:30,740 --> 00:05:37,160
+we see dad in turn has a location key and this finally is an object with the coordinates we are interested
+
+66
+00:05:37,160 --> 00:05:37,460
+in.
+
+67
+00:05:37,580 --> 00:05:39,680
+A latitude and longitude.
+
+68
+00:05:39,770 --> 00:05:47,060
+So in the end we have to drill into data results and then they're the first result geometry location
+
+69
+00:05:47,450 --> 00:05:52,850
+and we will have an object with a latitude and longitude and we will be able to then render does latitude
+
+70
+00:05:52,850 --> 00:05:55,280
+and longitude on a map later.
+
+71
+00:05:55,280 --> 00:06:04,610
+So for now let's just extractors and let's get our coordinates by accessing response dot data dot results
+
+72
+00:06:04,610 --> 00:06:11,220
+and then they're the first result dot geometry dot location.
+
+73
+00:06:11,220 --> 00:06:19,350
+So really drilling into this now what you will notice of course is that whilst typescript does not complain
+
+74
+00:06:19,350 --> 00:06:23,040
+here we also got no good typescript support here.
+
+75
+00:06:23,040 --> 00:06:23,310
+Right.
+
+76
+00:06:23,310 --> 00:06:29,010
+If I type a dot here it's not suggesting that there is a results property and indeed I could try to
+
+77
+00:06:29,010 --> 00:06:33,570
+access anything here even something which does not exist on the response.
+
+78
+00:06:33,930 --> 00:06:39,780
+And that makes sense how would typescript know what will be in the response of any you are l I'm sending
+
+79
+00:06:39,780 --> 00:06:45,900
+a request to typescript does not go ahead and send the request during development to find out what's
+
+80
+00:06:45,900 --> 00:06:46,580
+in there.
+
+81
+00:06:46,590 --> 00:06:53,040
+Dad would also not be that good but we can tell typescript what we expect to be in the response because
+
+82
+00:06:53,040 --> 00:07:00,510
+this get method actually is a generic method and there is any thing here that is actually the type of
+
+83
+00:07:00,510 --> 00:07:02,870
+the response we expect to get.
+
+84
+00:07:02,880 --> 00:07:11,850
+So here I can add my response type and I can tell typescript that what I expect is an object which has
+
+85
+00:07:11,850 --> 00:07:22,530
+a results key which then in turn is an array full of objects where every object has a geometry key which
+
+86
+00:07:22,530 --> 00:07:29,490
+then in turn is an object which has a location key which then in turn is an object which has a latitude
+
+87
+00:07:29,820 --> 00:07:33,500
+which is a number and a long etude which is a number.
+
+88
+00:07:33,630 --> 00:07:39,640
+So definitely quite a complex type but with that if we type a dot here I get all the completion and
+
+89
+00:07:39,650 --> 00:07:44,580
+typescript understands what I'm accessing here and of course we can all do pull this type out of here
+
+90
+00:07:44,910 --> 00:07:55,150
+and create our own type alias maybe here Google geo coding response that would be my custom type here
+
+91
+00:07:55,480 --> 00:08:01,450
+and then I can tell typescript it here I expect to get that Google geo coding response.
+
+92
+00:08:01,570 --> 00:08:06,700
+Now of course actually the response contains more than just the results array it alls as a state code
+
+93
+00:08:07,090 --> 00:08:13,090
+and it also has multiple other fields in each item of the results array then the geometry.
+
+94
+00:08:13,090 --> 00:08:21,330
+Now of course you can simply add all these fields to your custom type here but here I really just want
+
+95
+00:08:21,330 --> 00:08:27,540
+to focus on the values I'm actively interested in and therefore there is actually one other field which
+
+96
+00:08:27,540 --> 00:08:30,960
+I will add and that is the status next to results.
+
+97
+00:08:30,960 --> 00:08:36,780
+So right here on the top level we got status and that will be a string which tells us whether Google
+
+98
+00:08:36,780 --> 00:08:44,040
+succeeded or not and state as will actually ever be OK or a couple of our values.
+
+99
+00:08:44,040 --> 00:08:45,810
+This is basically a status message.
+
+100
+00:08:45,810 --> 00:08:51,930
+Google responds with to tell us whether it succeeded fetching coordinates for this address or not.
+
+101
+00:08:51,930 --> 00:08:57,810
+And of course in the official box we can learn which kind of responses we might get back here if you
+
+102
+00:08:57,810 --> 00:09:03,090
+scroll down a little bit and click on understanding the response you learn what's inside the response
+
+103
+00:09:03,090 --> 00:09:08,940
+you get back and therefore click on geo coding responses and then on status codes we learn about the
+
+104
+00:09:08,940 --> 00:09:15,090
+available status codes and for example we also got zero results if nothing was found.
+
+105
+00:09:15,150 --> 00:09:21,160
+We got a couple of other codes as well but here I really only care about these two so I tell typescript
+
+106
+00:09:21,160 --> 00:09:24,910
+that here I get a status code which is one of these two values.
+
+107
+00:09:24,910 --> 00:09:29,720
+Now again it might have a number of value as well but this is good for me here.
+
+108
+00:09:29,890 --> 00:09:33,660
+As I said you can of course write does in a more complete way.
+
+109
+00:09:33,730 --> 00:09:41,050
+Now with that added down there and the then log we can check if response dot data dot status is not
+
+110
+00:09:41,140 --> 00:09:46,390
+OK which means something went wrong and in that case we can throw an error here and therefore we will
+
+111
+00:09:46,450 --> 00:09:49,810
+end up in a catch block where we could set up some error handling.
+
+112
+00:09:49,870 --> 00:09:56,890
+So here will throw an error could not fetch location and then here and the error handler to do something
+
+113
+00:09:57,130 --> 00:10:03,100
+we can throw an alert where we output the error message at least this is of course just some very basic
+
+114
+00:10:03,100 --> 00:10:04,560
+error handling.
+
+115
+00:10:04,720 --> 00:10:10,630
+Otherwise if we have a success response we fetch our coordinates here and now we can use these coordinates
+
+116
+00:10:10,630 --> 00:10:12,010
+to output them on a map.

@@ -1,0 +1,183 @@
+1
+00:00:02,200 --> 00:00:04,640
+For this attached you find this starting Project.
+
+2
+00:00:04,660 --> 00:00:06,270
+It's a good old starting Project.
+
+3
+00:00:06,280 --> 00:00:08,590
+We already know and they're in Apt.
+
+4
+00:00:08,590 --> 00:00:10,810
+Yes we can write some code and index H Tim L..
+
+5
+00:00:10,840 --> 00:00:13,000
+Well we got basically nothing.
+
+6
+00:00:13,020 --> 00:00:15,830
+Now my goal here is very simple.
+
+7
+00:00:15,940 --> 00:00:20,420
+I want to build a simple web application where we can enter and address.
+
+8
+00:00:20,440 --> 00:00:26,950
+Then I want to look up this address and convert it into a pair of coordinates and we'll do this with
+
+9
+00:00:26,950 --> 00:00:30,210
+help of Google with one of Google's API eyes.
+
+10
+00:00:30,490 --> 00:00:32,980
+And then I want to render these coordinates.
+
+11
+00:00:32,980 --> 00:00:40,400
+I want to show these coordinates on a map which we will also render with help of Google Maps or with
+
+12
+00:00:40,420 --> 00:00:46,000
+help of Google specifically with help of the Google Maps Javascript SDK.
+
+13
+00:00:46,090 --> 00:00:49,700
+So we'll be working with two third party libraries here.
+
+14
+00:00:49,750 --> 00:00:53,740
+This H to the PS sending library and the Google Maps library.
+
+15
+00:00:53,740 --> 00:00:59,410
+And with that I'd say let's get started and let's get started by building the very basic skeleton.
+
+16
+00:00:59,410 --> 00:01:05,320
+Now this is no H to mail and those styling cores so we'll keep this fairly simple.
+
+17
+00:01:05,320 --> 00:01:10,390
+All create a div here in index HDL which will get an idea of map.
+
+18
+00:01:10,390 --> 00:01:14,070
+My goal is to render the map in this div later.
+
+19
+00:01:14,140 --> 00:01:22,720
+Now in this div at the moment I'll add a paragraph where I say please enter an address so that we see
+
+20
+00:01:22,720 --> 00:01:27,730
+this paragraph whilst we haven't picked a place yet and below it is div.
+
+21
+00:01:28,060 --> 00:01:35,410
+I'll add a form without an action and without a method because I will handle it in typescript and in
+
+22
+00:01:35,410 --> 00:01:46,660
+this form I want to have a input of type text with an idea of address and below that a button of type
+
+23
+00:01:46,810 --> 00:01:54,140
+submit where I say search place or search address whatever you want to say.
+
+24
+00:01:54,250 --> 00:01:59,620
+And the goal is of course that when we submit this form we get the valued user entered here and then
+
+25
+00:01:59,620 --> 00:02:03,460
+we convert it into coordinates which we render here on the map.
+
+26
+00:02:03,460 --> 00:02:09,700
+Now let's add some styling because we need at least some basic styling and therefore I'll add a link
+
+27
+00:02:09,760 --> 00:02:16,870
+here and point at apt on CSX which is a file we have yet to add and then the C as this file I'll set
+
+28
+00:02:16,870 --> 00:02:19,690
+up some very simple styles for the map.
+
+29
+00:02:19,690 --> 00:02:25,270
+I'll give it the width of 90 percent and a height of let's say 20 REM so that we see something on the
+
+30
+00:02:25,270 --> 00:02:33,460
+screen a border of 1 pixel solid and a light grayish look a margin of 2 REM top and bottom and auto
+
+31
+00:02:33,490 --> 00:02:40,390
+left and right to center it and then it will use display flex and air to set up flex box where we can
+
+32
+00:02:40,390 --> 00:02:47,050
+use justified content center and a line items center to center does paragraph which is show initially
+
+33
+00:02:47,380 --> 00:02:54,790
+in the middle of this box I will also said text align to center so that the text in the paragraph also
+
+34
+00:02:54,790 --> 00:03:02,060
+is centered and with that forward of form we can also select this by the Forum tag here.
+
+35
+00:03:02,070 --> 00:03:09,750
+I also want to use text align center to center does all in the middle of the screen so to say give it
+
+36
+00:03:09,750 --> 00:03:12,950
+a margin of 2 REM and auto.
+
+37
+00:03:13,260 --> 00:03:20,010
+So to all have some spacing between the map and the form and Dad should be it on the page we should
+
+38
+00:03:20,010 --> 00:03:21,710
+now see something like this.
+
+39
+00:03:21,750 --> 00:03:24,630
+Now I want to change my my funds here.
+
+40
+00:03:24,630 --> 00:03:32,040
+So for the overall H H2 Mal selector I'll set the font family to sans serif but with that I'm good and
+
+41
+00:03:32,040 --> 00:03:33,900
+you can certainly style more.
+
+42
+00:03:33,900 --> 00:03:39,330
+You can certainly styled as input or add a button but I don't want to worry too much about the styling
+
+43
+00:03:39,330 --> 00:03:44,820
+part here instead I want to make sure that this works but feel free to of course improve the styling
+
+44
+00:03:44,820 --> 00:03:46,050
+here.
+
+45
+00:03:46,050 --> 00:03:52,110
+With that prepared however let's make sure that now we actually fetch whatever the user entered here
+
+46
+00:03:52,410 --> 00:03:54,480
+and looked it up with the help of Google.

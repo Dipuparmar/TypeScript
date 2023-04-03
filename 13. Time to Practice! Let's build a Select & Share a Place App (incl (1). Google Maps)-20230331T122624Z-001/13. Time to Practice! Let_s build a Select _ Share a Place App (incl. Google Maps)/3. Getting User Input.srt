@@ -1,0 +1,119 @@
+1
+00:00:02,200 --> 00:00:09,100
+So in our apt yes file we need to check for this form submission here for this year.
+
+2
+00:00:09,130 --> 00:00:15,220
+I will create a form constant and reach out to the forum with document query selector querying for the
+
+3
+00:00:15,220 --> 00:00:19,990
+forum tag and since we have only one form tag in the entire document will of course fetch that.
+
+4
+00:00:21,190 --> 00:00:24,340
+So this gives us access to the form on that form.
+
+5
+00:00:24,340 --> 00:00:25,960
+I will add an event listener
+
+6
+00:00:29,690 --> 00:00:36,010
+and I'll listen for the submit event notice form of course could be null as always.
+
+7
+00:00:36,010 --> 00:00:41,080
+But we know it won't be so we can add this good old exclamation mark thereafter to tell typescript that
+
+8
+00:00:41,080 --> 00:00:42,910
+this will not be null.
+
+9
+00:00:43,030 --> 00:00:48,160
+And then here we have the event listener and it will define a function which should be triggered and
+
+10
+00:00:48,160 --> 00:00:56,410
+that is d search address handler function let's say and this function should be triggered whenever this
+
+11
+00:00:56,410 --> 00:00:58,210
+form is submitted.
+
+12
+00:00:58,210 --> 00:01:04,270
+Now in this function will get the event object and other will first of all call event prevent default
+
+13
+00:01:04,270 --> 00:01:10,390
+here and also let's give typescript some hints here and let's inform it that this is an event so that
+
+14
+00:01:10,390 --> 00:01:14,000
+it knows that this prevent default command here will exist.
+
+15
+00:01:14,910 --> 00:01:17,460
+With that we prevent the form submission.
+
+16
+00:01:17,460 --> 00:01:23,540
+We ensure that no request gets sent but now I want to get access to the address the user entered.
+
+17
+00:01:23,670 --> 00:01:24,930
+Now that shouldn't be too hard.
+
+18
+00:01:24,930 --> 00:01:27,870
+We have one input here and it has an idea of address.
+
+19
+00:01:27,870 --> 00:01:33,810
+So at the end we want to get the value that was entered into this input and we can do this here by simply
+
+20
+00:01:33,810 --> 00:01:42,030
+defining a number constant address input which we get with document query selector or actually get the
+
+21
+00:01:42,030 --> 00:01:45,850
+element by I.D. and then the idea was addressed.
+
+22
+00:01:45,850 --> 00:01:50,640
+That was the idea assigned to this element and justice before we know it is will never be null.
+
+23
+00:01:50,680 --> 00:02:00,960
+So we can add this exclamation mark here and with that we got our entered address here by accessing
+
+24
+00:02:01,050 --> 00:02:06,010
+address input dot value.
+
+25
+00:02:06,020 --> 00:02:13,060
+Now why does types could not like value here because it doesn't noted what we fetch here is an H to
+
+26
+00:02:13,060 --> 00:02:14,340
+male input element.
+
+27
+00:02:14,540 --> 00:02:20,880
+So let's tell typescript Let's convert it to an h him l input element with the typecasting here.
+
+28
+00:02:20,870 --> 00:02:26,780
+Now typescript doesn't complain about that value axis here anymore and gives us the entered address
+
+29
+00:02:27,860 --> 00:02:34,080
+and now we need to send this to Google's API.
+
+30
+00:02:34,240 --> 00:02:38,780
+Let's do that with help of some other third party package in the next lecture.
